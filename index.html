@@ -1,0 +1,2396 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:400,700" rel="stylesheet">
+<style>
+h2 {
+	font-family:'Fira Sans Condensed';
+}
+
+.collapsible {
+    color: black;
+    cursor: pointer;
+    width: 800px;
+    height: 25px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 14px;
+    font-family:'Fira Sans Condensed';
+    padding: 10px;
+}
+
+.collapsible-empty {
+    width: 800px;
+    height: 25px;
+    border: none;
+    padding:10px;
+}
+
+
+.streams {
+    color: black;
+    width: 50px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 14px;
+    font-family: 'Fira Sans Condensed';
+    padding: 10px;
+}
+
+.rank {
+    width: 20px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    font-weight: bold;
+    font-family:'Fira Sans Condensed';
+}
+
+.image {
+    width: 40px;
+    border: none;
+    text-align: left;
+    outline: none;
+}
+
+.active, .collapsible:hover {
+ 	background-color: #e9e8e6;   
+}
+
+.content {
+	padding:0px 200px;
+    width: 800px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    font-family:'Fira Sans Condensed';
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+}
+
+/* Not in use right now
+.xaxis line{
+  opacity: 0.25;
+}
+
+.xaxis path{
+  opacity: 0.25;
+}
+
+.xaxis text{
+  font-family:'Chivo';
+  fill: black;
+}
+
+.yaxis line{
+  opacity: 0.25;
+}
+
+.yaxis path{
+  opacity: 0.25;
+}
+
+.yaxis text{
+  font-family:'Chivo';
+  fill: black;
+}*/
+
+</style>
+</head>
+<body>
+
+<div class = "container">
+<h2>Spotify Top 200</h2>
+
+<div id="drop"></div>
+
+<center><table>
+	<tr>
+		<td class = "rank"></td>
+		<td class = "image"></td>
+		<td class = "collapsible-empty"></td>
+		<td class = "streams"><b>Streams</b></td>
+	</tr>
+</table></center>
+<!-- Do not delete above -->
+
+
+<center><table>
+<tr id = "row1">
+	<td class = "rank">1</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content1">
+	<svg id = "svg1" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row2">
+	<td class = "rank">2</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content2">
+	<svg id = "svg2" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row3">
+	<td class = "rank">3</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content3">
+	<svg id = "svg3" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row4">
+	<td class = "rank">4</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content4">
+	<svg id = "svg4" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row5">
+	<td class = "rank">5</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content5">
+	<svg id = "svg5" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row6">
+	<td class = "rank">6</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content6">
+	<svg id = "svg6" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row7">
+	<td class = "rank">7</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content7">
+	<svg id = "svg7" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row8">
+	<td class = "rank">8</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content8">
+	<svg id = "svg8" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row9">
+	<td class = "rank">9</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content9">
+	<svg id = "svg9" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row10">
+	<td class = "rank">10</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content10">
+	<svg id = "svg10" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row11">
+	<td class = "rank">11</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content11">
+	<svg id = "svg11" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row12">
+	<td class = "rank">12</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content12">
+	<svg id = "svg12" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row13">
+	<td class = "rank">13</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content13">
+	<svg id = "svg13" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row14">
+	<td class = "rank">14</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content14">
+	<svg id = "svg14" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row15">
+	<td class = "rank">15</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content15">
+	<svg id = "svg15" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row16">
+	<td class = "rank">16</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content16">
+	<svg id = "svg16" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row17">
+	<td class = "rank">17</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content17">
+	<svg id = "svg17" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row18">
+	<td class = "rank">18</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content18">
+	<svg id = "svg18" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row19">
+	<td class = "rank">19</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content19">
+	<svg id = "svg19" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row20">
+	<td class = "rank">20</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content20">
+	<svg id = "svg20" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row21">
+	<td class = "rank">21</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content21">
+	<svg id = "svg21" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row22">
+	<td class = "rank">22</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content22">
+	<svg id = "svg22" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row23">
+	<td class = "rank">23</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content23">
+	<svg id = "svg23" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row24">
+	<td class = "rank">24</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content24">
+	<svg id = "svg24" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row25">
+	<td class = "rank">25</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content25">
+	<svg id = "svg25" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row26">
+	<td class = "rank">26</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content26">
+	<svg id = "svg26" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row27">
+	<td class = "rank">27</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content27">
+	<svg id = "svg27" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row28">
+	<td class = "rank">28</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content28">
+	<svg id = "svg28" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row29">
+	<td class = "rank">29</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content29">
+	<svg id = "svg29" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row30">
+	<td class = "rank">30</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content30">
+	<svg id = "svg30" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row31">
+	<td class = "rank">31</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content31">
+	<svg id = "svg31" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row32">
+	<td class = "rank">32</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content32">
+	<svg id = "svg32" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row33">
+	<td class = "rank">33</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content33">
+	<svg id = "svg33" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row34">
+	<td class = "rank">34</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content34">
+	<svg id = "svg34" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row35">
+	<td class = "rank">35</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content35">
+	<svg id = "svg35" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row36">
+	<td class = "rank">36</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content36">
+	<svg id = "svg36" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row37">
+	<td class = "rank">37</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content37">
+	<svg id = "svg37" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row38">
+	<td class = "rank">38</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content38">
+	<svg id = "svg38" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row39">
+	<td class = "rank">39</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content39">
+	<svg id = "svg39" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row40">
+	<td class = "rank">40</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content40">
+	<svg id = "svg40" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row41">
+	<td class = "rank">41</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content41">
+	<svg id = "svg41" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row42">
+	<td class = "rank">42</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content42">
+	<svg id = "svg42" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row43">
+	<td class = "rank">43</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content43">
+	<svg id = "svg43" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row44">
+	<td class = "rank">44</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content44">
+	<svg id = "svg44" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row45">
+	<td class = "rank">45</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content45">
+	<svg id = "svg45" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row46">
+	<td class = "rank">46</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content46">
+	<svg id = "svg46" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row47">
+	<td class = "rank">47</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content47">
+	<svg id = "svg47" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row48">
+	<td class = "rank">48</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content48">
+	<svg id = "svg48" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row49">
+	<td class = "rank">49</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content49">
+	<svg id = "svg49" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row50">
+	<td class = "rank">50</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content50">
+	<svg id = "svg50" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row51">
+	<td class = "rank">51</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content51">
+	<svg id = "svg51" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row52">
+	<td class = "rank">52</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content52">
+	<svg id = "svg52" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row53">
+	<td class = "rank">53</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content53">
+	<svg id = "svg53" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row54">
+	<td class = "rank">54</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content54">
+	<svg id = "svg54" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row55">
+	<td class = "rank">55</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content55">
+	<svg id = "svg55" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row56">
+	<td class = "rank">56</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content56">
+	<svg id = "svg56" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row57">
+	<td class = "rank">57</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content57">
+	<svg id = "svg57" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row58">
+	<td class = "rank">58</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content58">
+	<svg id = "svg58" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row59">
+	<td class = "rank">59</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content59">
+	<svg id = "svg59" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row60">
+	<td class = "rank">60</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content60">
+	<svg id = "svg60" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row61">
+	<td class = "rank">61</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content61">
+	<svg id = "svg61" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row62">
+	<td class = "rank">62</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content62">
+	<svg id = "svg62" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row63">
+	<td class = "rank">63</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content63">
+	<svg id = "svg63" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row64">
+	<td class = "rank">64</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content64">
+	<svg id = "svg64" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row65">
+	<td class = "rank">65</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content65">
+	<svg id = "svg65" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row66">
+	<td class = "rank">66</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content66">
+	<svg id = "svg66" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row67">
+	<td class = "rank">67</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content67">
+	<svg id = "svg67" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row68">
+	<td class = "rank">68</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content68">
+	<svg id = "svg68" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row69">
+	<td class = "rank">69</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content69">
+	<svg id = "svg69" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row70">
+	<td class = "rank">70</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content70">
+	<svg id = "svg70" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row71">
+	<td class = "rank">71</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content71">
+	<svg id = "svg71" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row72">
+	<td class = "rank">72</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content72">
+	<svg id = "svg72" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row73">
+	<td class = "rank">73</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content73">
+	<svg id = "svg73" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row74">
+	<td class = "rank">74</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content74">
+	<svg id = "svg74" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row75">
+	<td class = "rank">75</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content75">
+	<svg id = "svg75" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row76">
+	<td class = "rank">76</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content76">
+	<svg id = "svg76" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row77">
+	<td class = "rank">77</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content77">
+	<svg id = "svg77" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row78">
+	<td class = "rank">78</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content78">
+	<svg id = "svg78" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row79">
+	<td class = "rank">79</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content79">
+	<svg id = "svg79" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row80">
+	<td class = "rank">80</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content80">
+	<svg id = "svg80" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row81">
+	<td class = "rank">81</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content81">
+	<svg id = "svg81" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row82">
+	<td class = "rank">82</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content82">
+	<svg id = "svg82" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row83">
+	<td class = "rank">83</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content83">
+	<svg id = "svg83" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row84">
+	<td class = "rank">84</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content84">
+	<svg id = "svg84" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row85">
+	<td class = "rank">85</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content85">
+	<svg id = "svg85" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row86">
+	<td class = "rank">86</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content86">
+	<svg id = "svg86" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row87">
+	<td class = "rank">87</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content87">
+	<svg id = "svg87" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row88">
+	<td class = "rank">88</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content88">
+	<svg id = "svg88" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row89">
+	<td class = "rank">89</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content89">
+	<svg id = "svg89" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row90">
+	<td class = "rank">90</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content90">
+	<svg id = "svg90" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row91">
+	<td class = "rank">91</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content91">
+	<svg id = "svg91" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row92">
+	<td class = "rank">92</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content92">
+	<svg id = "svg92" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row93">
+	<td class = "rank">93</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content93">
+	<svg id = "svg93" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row94">
+	<td class = "rank">94</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content94">
+	<svg id = "svg94" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row95">
+	<td class = "rank">95</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content95">
+	<svg id = "svg95" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row96">
+	<td class = "rank">96</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content96">
+	<svg id = "svg96" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row97">
+	<td class = "rank">97</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content97">
+	<svg id = "svg97" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row98">
+	<td class = "rank">98</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content98">
+	<svg id = "svg98" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row99">
+	<td class = "rank">99</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content99">
+	<svg id = "svg99" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row100">
+	<td class = "rank">100</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content100">
+	<svg id = "svg100" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row101">
+	<td class = "rank">101</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content101">
+	<svg id = "svg101" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row102">
+	<td class = "rank">102</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content102">
+	<svg id = "svg102" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row103">
+	<td class = "rank">103</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content103">
+	<svg id = "svg103" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row104">
+	<td class = "rank">104</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content104">
+	<svg id = "svg104" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row105">
+	<td class = "rank">105</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content105">
+	<svg id = "svg105" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row106">
+	<td class = "rank">106</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content106">
+	<svg id = "svg106" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row107">
+	<td class = "rank">107</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content107">
+	<svg id = "svg107" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row108">
+	<td class = "rank">108</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content108">
+	<svg id = "svg108" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row109">
+	<td class = "rank">109</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content109">
+	<svg id = "svg109" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row110">
+	<td class = "rank">110</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content110">
+	<svg id = "svg110" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row111">
+	<td class = "rank">111</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content111">
+	<svg id = "svg111" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row112">
+	<td class = "rank">112</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content112">
+	<svg id = "svg112" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row113">
+	<td class = "rank">113</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content113">
+	<svg id = "svg113" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row114">
+	<td class = "rank">114</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content114">
+	<svg id = "svg114" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row115">
+	<td class = "rank">115</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content115">
+	<svg id = "svg115" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row116">
+	<td class = "rank">116</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content116">
+	<svg id = "svg116" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row117">
+	<td class = "rank">117</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content117">
+	<svg id = "svg117" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row118">
+	<td class = "rank">118</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content118">
+	<svg id = "svg118" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row119">
+	<td class = "rank">119</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content119">
+	<svg id = "svg119" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row120">
+	<td class = "rank">120</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content120">
+	<svg id = "svg120" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row121">
+	<td class = "rank">121</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content121">
+	<svg id = "svg121" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row122">
+	<td class = "rank">122</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content122">
+	<svg id = "svg122" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row123">
+	<td class = "rank">123</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content123">
+	<svg id = "svg123" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row124">
+	<td class = "rank">124</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content124">
+	<svg id = "svg124" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row125">
+	<td class = "rank">125</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content125">
+	<svg id = "svg125" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row126">
+	<td class = "rank">126</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content126">
+	<svg id = "svg126" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row127">
+	<td class = "rank">127</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content127">
+	<svg id = "svg127" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row128">
+	<td class = "rank">128</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content128">
+	<svg id = "svg128" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row129">
+	<td class = "rank">129</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content129">
+	<svg id = "svg129" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row130">
+	<td class = "rank">130</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content130">
+	<svg id = "svg130" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row131">
+	<td class = "rank">131</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content131">
+	<svg id = "svg131" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row132">
+	<td class = "rank">132</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content132">
+	<svg id = "svg132" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row133">
+	<td class = "rank">133</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content133">
+	<svg id = "svg133" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row134">
+	<td class = "rank">134</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content134">
+	<svg id = "svg134" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row135">
+	<td class = "rank">135</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content135">
+	<svg id = "svg135" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row136">
+	<td class = "rank">136</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content136">
+	<svg id = "svg136" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row137">
+	<td class = "rank">137</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content137">
+	<svg id = "svg137" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row138">
+	<td class = "rank">138</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content138">
+	<svg id = "svg138" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row139">
+	<td class = "rank">139</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content139">
+	<svg id = "svg139" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row140">
+	<td class = "rank">140</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content140">
+	<svg id = "svg140" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row141">
+	<td class = "rank">141</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content141">
+	<svg id = "svg141" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row142">
+	<td class = "rank">142</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content142">
+	<svg id = "svg142" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row143">
+	<td class = "rank">143</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content143">
+	<svg id = "svg143" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row144">
+	<td class = "rank">144</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content144">
+	<svg id = "svg144" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row145">
+	<td class = "rank">145</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content145">
+	<svg id = "svg145" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row146">
+	<td class = "rank">146</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content146">
+	<svg id = "svg146" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row147">
+	<td class = "rank">147</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content147">
+	<svg id = "svg147" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row148">
+	<td class = "rank">148</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content148">
+	<svg id = "svg148" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row149">
+	<td class = "rank">149</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content149">
+	<svg id = "svg149" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row150">
+	<td class = "rank">150</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content150">
+	<svg id = "svg150" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row151">
+	<td class = "rank">151</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content151">
+	<svg id = "svg151" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row152">
+	<td class = "rank">152</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content152">
+	<svg id = "svg152" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row153">
+	<td class = "rank">153</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content153">
+	<svg id = "svg153" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row154">
+	<td class = "rank">154</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content154">
+	<svg id = "svg154" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row155">
+	<td class = "rank">155</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content155">
+	<svg id = "svg155" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row156">
+	<td class = "rank">156</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content156">
+	<svg id = "svg156" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row157">
+	<td class = "rank">157</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content157">
+	<svg id = "svg157" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row158">
+	<td class = "rank">158</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content158">
+	<svg id = "svg158" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row159">
+	<td class = "rank">159</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content159">
+	<svg id = "svg159" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row160">
+	<td class = "rank">160</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content160">
+	<svg id = "svg160" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row161">
+	<td class = "rank">161</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content161">
+	<svg id = "svg161" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row162">
+	<td class = "rank">162</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content162">
+	<svg id = "svg162" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row163">
+	<td class = "rank">163</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content163">
+	<svg id = "svg163" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row164">
+	<td class = "rank">164</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content164">
+	<svg id = "svg164" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row165">
+	<td class = "rank">165</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content165">
+	<svg id = "svg165" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row166">
+	<td class = "rank">166</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content166">
+	<svg id = "svg166" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row167">
+	<td class = "rank">167</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content167">
+	<svg id = "svg167" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row168">
+	<td class = "rank">168</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content168">
+	<svg id = "svg168" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row169">
+	<td class = "rank">169</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content169">
+	<svg id = "svg169" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row170">
+	<td class = "rank">170</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content170">
+	<svg id = "svg170" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row171">
+	<td class = "rank">171</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content171">
+	<svg id = "svg171" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row172">
+	<td class = "rank">172</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content172">
+	<svg id = "svg172" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row173">
+	<td class = "rank">173</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content173">
+	<svg id = "svg173" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row174">
+	<td class = "rank">174</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content174">
+	<svg id = "svg174" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row175">
+	<td class = "rank">175</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content175">
+	<svg id = "svg175" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row176">
+	<td class = "rank">176</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content176">
+	<svg id = "svg176" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row177">
+	<td class = "rank">177</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content177">
+	<svg id = "svg177" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row178">
+	<td class = "rank">178</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content178">
+	<svg id = "svg178" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row179">
+	<td class = "rank">179</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content179">
+	<svg id = "svg179" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row180">
+	<td class = "rank">180</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content180">
+	<svg id = "svg180" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row181">
+	<td class = "rank">181</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content181">
+	<svg id = "svg181" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row182">
+	<td class = "rank">182</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content182">
+	<svg id = "svg182" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row183">
+	<td class = "rank">183</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content183">
+	<svg id = "svg183" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row184">
+	<td class = "rank">184</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content184">
+	<svg id = "svg184" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row185">
+	<td class = "rank">185</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content185">
+	<svg id = "svg185" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row186">
+	<td class = "rank">186</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content186">
+	<svg id = "svg186" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row187">
+	<td class = "rank">187</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content187">
+	<svg id = "svg187" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row188">
+	<td class = "rank">188</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content188">
+	<svg id = "svg188" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row189">
+	<td class = "rank">189</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content189">
+	<svg id = "svg189" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row190">
+	<td class = "rank">190</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content190">
+	<svg id = "svg190" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row191">
+	<td class = "rank">191</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content191">
+	<svg id = "svg191" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row192">
+	<td class = "rank">192</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content192">
+	<svg id = "svg192" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row193">
+	<td class = "rank">193</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content193">
+	<svg id = "svg193" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row194">
+	<td class = "rank">194</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content194">
+	<svg id = "svg194" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row195">
+	<td class = "rank">195</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content195">
+	<svg id = "svg195" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row196">
+	<td class = "rank">196</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content196">
+	<svg id = "svg196" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row197">
+	<td class = "rank">197</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content197">
+	<svg id = "svg197" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row198">
+	<td class = "rank">198</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content198">
+	<svg id = "svg198" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row199">
+	<td class = "rank">199</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content199">
+	<svg id = "svg199" width="800" height="300"></svg>
+</div>
+<center><table>
+<tr id = "row200">
+	<td class = "rank">200</td>
+	<td></td>
+	<td class = "collapsible"></td>
+	<td class = "streams"></td>
+</tr></table></center>
+<div class="content" id = "content200">
+	<svg id = "svg200" width="800" height="300"></svg>
+</div>
+
+
+
+
+<!-- end container div -->
+</div>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+var format = d3.format(",");
+
+var dates = ["5/28/2018", "5/27/2018", "5/26/2018", "5/25/2018", "5/24/2018", "5/23/2018", "5/22/2018", "5/21/2018", "5/20/2018", "5/19/2018", "5/18/2018", "5/17/2018", "5/16/2018", "5/15/2018", "5/14/2018", "5/13/2018", "5/12/2018", "5/11/2018", "5/10/2018", "5/9/2018", "5/8/2018", "5/7/2018", "5/6/2018", "5/5/2018", "5/4/2018", "5/3/2018", "5/2/2018", "5/1/2018", "4/30/2018", "4/29/2018", "4/28/2018", "4/27/2018", "4/26/2018", "4/25/2018", "4/24/2018", "4/23/2018", "4/22/2018", "4/21/2018", "4/20/2018", "4/19/2018", "4/18/2018", "4/17/2018", "4/16/2018", "4/15/2018", "4/14/2018", "4/13/2018", "4/12/2018", "4/11/2018", "4/10/2018", "4/9/2018", "4/8/2018", "4/7/2018", "4/6/2018", "4/5/2018", "4/4/2018", "4/3/2018", "4/2/2018", "4/1/2018", "3/31/2018", "3/30/2018", "3/29/2018", "3/28/2018", "3/27/2018", "3/26/2018", "3/25/2018", "3/24/2018", "3/23/2018", "3/22/2018", "3/21/2018", "3/20/2018", "3/19/2018", "3/18/2018", "3/17/2018", "3/16/2018", "3/15/2018", "3/14/2018", "3/13/2018", "3/12/2018", "3/11/2018", "3/10/2018", "3/9/2018", "3/8/2018", "3/7/2018", "3/6/2018", "3/5/2018", "3/4/2018", "3/3/2018", "3/2/2018", "3/1/2018", "2/28/2018", "2/27/2018", "2/26/2018", "2/25/2018", "2/24/2018", "2/23/2018", "2/22/2018", "2/21/2018", "2/20/2018", "2/19/2018", "2/18/2018", "2/17/2018", "2/16/2018", "2/15/2018", "2/14/2018", "2/13/2018", "2/12/2018", "2/11/2018", "2/10/2018", "2/9/2018", "2/8/2018", "2/7/2018", "2/6/2018", "2/5/2018", "2/4/2018", "2/3/2018", "2/2/2018", "2/1/2018", "1/31/2018", "1/30/2018", "1/29/2018", "1/28/2018", "1/27/2018", "1/26/2018", "1/25/2018", "1/24/2018", "1/23/2018", "1/22/2018", "1/21/2018", "1/20/2018", "1/19/2018", "1/18/2018", "1/17/2018", "1/16/2018", "1/15/2018", "1/14/2018", "1/13/2018", "1/12/2018", "1/11/2018", "1/10/2018", "1/9/2018", "1/8/2018", "1/7/2018", "1/6/2018", "1/5/2018", "1/4/2018", "1/3/2018", "1/2/2018", "1/1/2018"];
+
+d3.queue()
+  .defer(d3.csv, 'global-ID-daily-2018-dupremoved.csv')
+  .defer(d3.csv, 'song-data-nodups.csv')
+  .await(makeTable);
+
+function parseDate(str) {
+    var mdy = str.split('/');
+    //console.log(mdy);
+    return new Date(mdy[2], mdy[0]-1, mdy[1]);
+}
+
+function datediff(first, second) {
+    // Take the difference between the dates and divide by milliseconds per day.
+    // Round to nearest whole number to deal with DST.
+    return Math.round((second-first)/(1000*60*60*24));
+}
+
+function getValsDate(date){
+	var daysBT = datediff(parseDate("1/1/2018"), parseDate(date));
+	return daysBT * 200;
+}
+
+function makeTable(error, data, songs){
+
+		var selection = dates[0];
+
+		var count = 1;
+		for (var j = getValsDate(selection); j < getValsDate(selection)+200; j++){
+			document.getElementById("row" + String(count)).cells[2].innerHTML = "<b>" + data[j]["Track.Name"] + "</b> by " + data[j]["Artist"];
+			document.getElementById("row" + String(count)).cells[3].innerText = format(data[j]["Streams"]);
+
+			for (var f = 0; f < songs.length; f++){
+				if (songs[f]["id"] == data[j]["ID"]){
+					document.getElementById("row" + String(count)).cells[1].innerHTML = "<img src=" + songs[f]["smallImg"] + " height=\"40px\"></img>"; 
+					break;
+				}
+			}
+			count++;
+		}
+
+		function getArtists(dataObj){
+			var artists = "";
+			if (dataObj["artist1"] != "NA"){
+				artists += dataObj["artist1"];
+			}
+			if (dataObj["artist2"] != "NA"){
+				artists += ", " + dataObj["artist2"];
+			}
+			if (dataObj["artist3"] != "NA"){
+				artists += ", " + dataObj["artist3"];
+			}
+			if (dataObj["artist4"] != "NA"){
+				artists += ", " + dataObj["artist4"];
+			}
+			if (dataObj["artist5"] != "NA"){
+				artists += ", " + dataObj["artist5"];
+			}
+			if (dataObj["artist6"] != "NA"){
+				artists += ", " + dataObj["artist6"];
+			}
+			return artists;
+		}
+
+		function showViz(index){
+
+
+			var currSong = getValsDate(selection) + index;
+
+			var matchingID = data[currSong]["ID"];
+
+			var newData = data.filter(function(d){ return d["ID"] === matchingID});
+
+			//console.log(newData);
+
+			var foundData;
+
+			for (var k = 0; k < songs.length; k++){
+				if (songs[k]["id"] == data[currSong]["ID"]){
+					foundData = songs[k];
+					break;
+				}
+			}
+
+			d3.selectAll(".svg" + String(index+1) + "stuff").remove();
+
+			var svg = d3.select("#svg" + String(index+1));
+			var width = 800, height = 300;
+			var xWidth = 500;
+
+			svg.append("foreignObject")
+				.attr("class", "svg" + String(index+1) + "stuff")
+				.attr("width",250)
+				.attr("height",300)
+				.attr("x", 0)
+				.attr("y", 0)
+				.html("<b>Artists:</b> " + getArtists(foundData) + "<br><b>Release Date: </b>" + foundData["releaseDate"]);
+
+
+			var parseTime = d3.timeParse("%m/%d/%Y");
+
+			var x = d3.scaleTime().range([0, xWidth]),
+			    y = d3.scaleLinear().range([250, 0]);
+
+			var xAxis = d3.axisBottom()
+			    .scale(x)
+			    .tickFormat(d3.timeFormat("%m-%d"));
+
+			var yAxis = d3.axisLeft()
+			    .scale(y)
+			    .tickFormat(d3.format(".2s"));
+
+			var startDate = "1/1/2018";
+			if (parseDate("1/1/2018") < parseDate(foundData["releaseDate"])){
+				startDate = foundData["releaseDate"];
+			}
+
+			  x.domain([parseTime(startDate), d3.max(newData, function(d){ return parseTime(d["Date"]);})]);
+
+			  y.domain([
+			    d3.min(newData, function(d) { return +d["Streams"]; }),
+			    d3.max(newData, function(d) { return +d["Streams"]; })
+			  ]);
+
+			  svg.append("g")
+		      .attr("class", "svg" + String(index+1) + "stuff")
+		      .attr("transform", "translate(275," + (height-40) + ")")
+		      .call(xAxis)
+		      .selectAll("text")
+		      .attr("dx", "-.8em")
+        	  .attr("dy", ".15em")
+        	  .style("text-anchor", "end")
+		      .attr("transform", "rotate(-65)");
+
+		       svg.append("g")
+			      .attr("class", "svg" + String(index+1) + "stuff")
+			      .attr("transform", "translate(275,10)")
+			      .call(yAxis)
+			      .append("text")
+			      .attr("transform", "rotate(-90)")
+			      .attr("y", 6)
+			      .attr("dy", "0.71em")
+			      .text("Number of Streams");
+
+			svg.append("svg:image")
+				.attr("class", "svg" + String(index+1) + "stuff")
+	        	.attr("x", 0)
+	        	.attr("y", 75)
+	        	.attr("width", 200)
+	        	.attr("height", 200)
+	        	.attr("xlink:href", foundData["medImg"]);
+
+	        	svg.selectAll("points")
+	        		.data(newData)
+	        		.enter()
+	        		.append("circle")
+	        		.attr("class", "svg" + String(index+1) + "stuff")
+	        		.attr("transform", "translate(275,10)")
+	        		.attr("r", 3)
+	        		.attr("cx", function(d){ return x(parseTime(d["Date"]))})
+	        		.attr("cy", function(d){ return y(+d["Streams"])})
+	        		.on("mouseover", function(d){
+
+	        			d3.select(this).style("fill", "steelblue");
+
+	        			svg.append("rect")
+			            .attr("class", "tooltip")
+			            .attr("x", x(parseTime(d["Date"]))-50)
+			            .attr("y", y(+d["Streams"])-35)
+			            .attr("transform", "translate(275,10)")
+			            .attr("width", 100)
+			            .attr("height", 30)
+			            .style("fill", "white")
+			            .attr("rx", 4)
+			            .attr("ry", 4)
+			            .style("fill-opacity", 0.9);
+
+			          svg.append("foreignObject")
+			            .attr("class", "tooltip")
+			            .attr("width", 100)
+			            .attr("height", 30)
+			            .attr("transform", "translate(275,10)")
+			            .attr("x", x(parseTime(d["Date"]))-50)
+			            .attr("y", y(+d["Streams"])-35)
+			            .style("font", "10px 'Arial'")
+			            .html("<center>" + d["Date"] + "<br>" + format(d["Streams"]) + "</center>");  
+
+	        		})
+	        		.on("mouseout", function(d){
+	        			d3.select(this).style("fill", "black");
+	        			d3.selectAll(".tooltip").remove();
+	        		});
+
+
+		}
+
+		var coll = document.getElementsByClassName("collapsible");
+		for (let i = 0; i < coll.length; i++) {
+		  coll[i].addEventListener("click", function() {
+		    this.classList.toggle("active");
+		    var content = document.getElementById("content" + String(i+1));
+		    if (content.style.maxHeight){
+		      content.style.maxHeight = null;
+		    } else {
+		      content.style.maxHeight = content.scrollHeight + "px";
+		      showViz(i);
+		    } 
+		  });
+		}
+
+
+	var selector = d3.select("#drop")
+    	.append("select")
+    	.attr("id","dropdown")
+    	.on("change", function(d){
+        	selData = document.getElementById("dropdown");
+        	selection = selData.options[selData.selectedIndex].value;
+        	
+        	var startInd = getValsDate(selection);
+        	var j = startInd;
+        	var count = 1;
+        	for (j; j < startInd + 200; j++){
+				document.getElementById("row" + String(count)).cells[2].innerHTML = "<b>" + data[j]["Track.Name"] + "</b> by " + data[j]["Artist"];
+				document.getElementById("row" + String(count)).cells[3].innerText = format(data[j]["Streams"]);
+
+				for (var f = 0; f < songs.length; f++){
+					if (songs[f]["id"] == data[j]["ID"]){
+						document.getElementById("row" + String(count)).cells[1].innerHTML = "<img src=" + songs[f]["smallImg"] + " height=\"40px\"></img>"; 
+						break;
+					}
+			}
+			count++;
+		}
+
+		// close all opened ones when new date selected
+		var coll = document.getElementsByClassName("collapsible");
+		for (let i = 0; i < coll.length; i++) {
+		      var content = document.getElementById("content" + String(i+1));
+		      coll[i].classList.toggle("active", false);
+		      content.style.maxHeight = null;
+		  }
+
+    });
+					
+
+    selector.selectAll("option")
+      .data(dates)
+      .enter().append("option")
+      .attr("value", function(d){
+        return d;
+      })
+      .text(function(d){
+        return d;
+      })
+}
+</script>
+
+</body>
+</html>
