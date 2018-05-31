@@ -1,0 +1,125 @@
+h2 {
+	font-family:'Fira Sans Condensed';
+}
+
+.collapsible {
+    color: black;
+    cursor: pointer;
+    width: 800px;
+    height: 25px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 14px;
+    font-family:'Fira Sans Condensed';
+    padding: 10px;
+}
+
+.collapsible-empty {
+    width: 800px;
+    height: 25px;
+    border: none;
+    padding:10px;
+}
+
+
+.streams {
+    color: black;
+    width: 50px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 14px;
+    font-family: 'Fira Sans Condensed';
+    padding: 10px;
+}
+
+.rank {
+    width: 20px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    font-weight: bold;
+    font-family:'Fira Sans Condensed';
+}
+
+.image {
+    width: 40px;
+    border: none;
+    text-align: left;
+    outline: none;
+}
+
+.active, .collapsible:hover {
+ 	background-color: #e9e8e6;   
+}
+
+.content {
+	padding:0px 200px;
+    width: 800px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    font-family:'Fira Sans Condensed';
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+}
+
+/* Not in use right now
+.xaxis line{
+  opacity: 0.25;
+}
+
+.xaxis path{
+  opacity: 0.25;
+}
+
+.xaxis text{
+  font-family:'Chivo';
+  fill: black;
+}
+
+.yaxis line{
+  opacity: 0.25;
+}
+
+.yaxis path{
+  opacity: 0.25;
+}
+
+.yaxis text{
+  font-family:'Chivo';
+  fill: black;
+}*/
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.area {
+  fill: lightsteelblue;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.dot {
+  fill: steelblue;
+  stroke: steelblue;
+  stroke-width: 1px;
+}
+
+.dot:hover{
+  fill: red;
+}
