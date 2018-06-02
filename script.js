@@ -1,3 +1,20 @@
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
 var format = d3.format(",");
 
 var dates = ["5/28/2018", "5/27/2018", "5/26/2018", "5/25/2018", "5/24/2018", "5/23/2018", "5/22/2018", "5/21/2018", "5/20/2018", "5/19/2018", "5/18/2018", "5/17/2018", "5/16/2018", "5/15/2018", "5/14/2018", "5/13/2018", "5/12/2018", "5/11/2018", "5/10/2018", "5/9/2018", "5/8/2018", "5/7/2018", "5/6/2018", "5/5/2018", "5/4/2018", "5/3/2018", "5/2/2018", "5/1/2018", "4/30/2018", "4/29/2018", "4/28/2018", "4/27/2018", "4/26/2018", "4/25/2018", "4/24/2018", "4/23/2018", "4/22/2018", "4/21/2018", "4/20/2018", "4/19/2018", "4/18/2018", "4/17/2018", "4/16/2018", "4/15/2018", "4/14/2018", "4/13/2018", "4/12/2018", "4/11/2018", "4/10/2018", "4/9/2018", "4/8/2018", "4/7/2018", "4/6/2018", "4/5/2018", "4/4/2018", "4/3/2018", "4/2/2018", "4/1/2018", "3/31/2018", "3/30/2018", "3/29/2018", "3/28/2018", "3/27/2018", "3/26/2018", "3/25/2018", "3/24/2018", "3/23/2018", "3/22/2018", "3/21/2018", "3/20/2018", "3/19/2018", "3/18/2018", "3/17/2018", "3/16/2018", "3/15/2018", "3/14/2018", "3/13/2018", "3/12/2018", "3/11/2018", "3/10/2018", "3/9/2018", "3/8/2018", "3/7/2018", "3/6/2018", "3/5/2018", "3/4/2018", "3/3/2018", "3/2/2018", "3/1/2018", "2/28/2018", "2/27/2018", "2/26/2018", "2/25/2018", "2/24/2018", "2/23/2018", "2/22/2018", "2/21/2018", "2/20/2018", "2/19/2018", "2/18/2018", "2/17/2018", "2/16/2018", "2/15/2018", "2/14/2018", "2/13/2018", "2/12/2018", "2/11/2018", "2/10/2018", "2/9/2018", "2/8/2018", "2/7/2018", "2/6/2018", "2/5/2018", "2/4/2018", "2/3/2018", "2/2/2018", "2/1/2018", "1/31/2018", "1/30/2018", "1/29/2018", "1/28/2018", "1/27/2018", "1/26/2018", "1/25/2018", "1/24/2018", "1/23/2018", "1/22/2018", "1/21/2018", "1/20/2018", "1/19/2018", "1/18/2018", "1/17/2018", "1/16/2018", "1/15/2018", "1/14/2018", "1/13/2018", "1/12/2018", "1/11/2018", "1/10/2018", "1/9/2018", "1/8/2018", "1/7/2018", "1/6/2018", "1/5/2018", "1/4/2018", "1/3/2018", "1/2/2018", "1/1/2018"];
@@ -26,86 +43,146 @@ function getValsDate(date){
 
 function makeTable(error, data, songs){
 
-		var selection = dates[0];
+  makeChart("5/28/2018");
+  var selection = dates[0];
+  
 
-		var count = 1;
-		for (var j = getValsDate(selection); j < getValsDate(selection)+200; j++){
-			document.getElementById("row" + String(count)).cells[2].innerHTML = "<b>" + data[j]["Track.Name"] + "</b> by " + data[j]["Artist"];
-			document.getElementById("row" + String(count)).cells[3].innerText = format(data[j]["Streams"]);
+  function makeChart(date){
 
-			for (var f = 0; f < songs.length; f++){
-				if (songs[f]["id"] == data[j]["ID"]){
-					document.getElementById("row" + String(count)).cells[1].innerHTML = "<img src=" + songs[f]["smallImg"] + " height=\"40px\"></img>"; 
-					break;
-				}
-			}
-			count++;
-		}
+    var i = 1;
+    for (var index = getValsDate(date); index < getValsDate(date)+200; index++){
+      d3.select("body")
+      .append("table")
+      .attr("class", "centeredDiv")
+      .attr("id", "table" + String(i))
+      .append("tr")
+      .attr("id", "row" + String(i));
 
-		function getArtists(dataObj){
-			var artists = "";
-			if (dataObj["artist1"] != "NA"){
-				artists += dataObj["artist1"];
-			}
-			if (dataObj["artist2"] != "NA"){
-				artists += ", " + dataObj["artist2"];
-			}
-			if (dataObj["artist3"] != "NA"){
-				artists += ", " + dataObj["artist3"];
-			}
-			if (dataObj["artist4"] != "NA"){
-				artists += ", " + dataObj["artist4"];
-			}
-			if (dataObj["artist5"] != "NA"){
-				artists += ", " + dataObj["artist5"];
-			}
-			if (dataObj["artist6"] != "NA"){
-				artists += ", " + dataObj["artist6"];
-			}
-			return artists;
-		}
+      d3.select("#row" + String(i)).append("td")
+      .attr("class", "rank")
+      .text(String(i));
+      d3.select("#row" + String(i)).append("td");
+      d3.select("#row" + String(i)).append("td")
+      .attr("class", "collapsible");
+      d3.select("#row" + String(i)).append("td")
+      .attr("class", "streams");
+      d3.select("body").append("div")
+        .attr("class", "content")
+        .attr("id", "content" + String(i));
+      d3.select("#content" + String(i)).append("nav")
+        .attr("id", "nav" + String(i))
+        .attr("class", "nav");
+      d3.select("#nav" + String(i)).append('ul')
+            .selectAll('li')
+            .data(["Streams", "Rankings"])
+            .enter()
+            .append('li')
+            .attr("id", "li" + String(i))
+            .style("opacity", function(d){
+              if (d === "Streams") return 1;
+                else return 0.4;
+            })
+            .on('click', function (d){
+              var graphSelection = d;
+              var category = "Streams";
+              if (graphSelection === "Rankings"){
+                category = "Position";
+              }
+              var thisID = String(d3.select(this)["_groups"][0][0].id);
+              var position = thisID.substring(2,thisID.length);
+              console.log(position);
+              var filterSelect = d3.select("#nav" + position);
 
-		function getData(id, songObj){
+              //d3.select("#svg" + thisID.substring(2,3))
+               // .select("#title" + position).text(graphSelection);
 
-        console.log(id);
-		      var newData = data.filter(function(d){ return d["ID"] === id});
-          console.log(newData);
+              filterSelect.selectAll("li").style("opacity", function(d){
+                if (d === graphSelection) return 1;
+                else return 0.4;
+              })
 
-		      var startDate = "1/1/2018";
-		      if (parseDate("1/1/2018") < parseDate(songObj["releaseDate"])){
-		        startDate = songObj["releaseDate"];
-		      }
+              showViz(position, category);
+            })
+            .text(function (d) { return d; });
+      d3.select("#content" + String(i)).append("svg")
+        .attr("id", "svg" + String(i))
+        .attr("width", 850)
+        .attr("height", 300);
 
-		      var startIndex = dates.length;
-		      if (startDate != "1/1/2018"){
-		        startIndex = dates.length-(datediff("1/1/2018",startDate))-1;
-		      }
+      
+      document.getElementById("row" + String(i)).cells[2].innerHTML = "<b>" + data[index]["Track.Name"] + "</b> by " + data[index]["Artist"];
+      document.getElementById("row" + String(i)).cells[3].innerText = format(data[index]["Streams"]);
 
-		      var ndInd = 0;
-		      var completeData = [];
-		      for (var date = startIndex; date >= 0; date--){
-		        // no data for this date
-		        if (newData[ndInd] == null || newData[ndInd]["Date"] != dates[date]){
-		          completeData.push(null);
-		        }
-		        else{
-		          completeData.push(newData[ndInd]);
-		          ndInd++;
-		        }
-		      }
-		      return completeData;
-		    }
+      for (var f = 0; f < songs.length; f++){
+        if (songs[f]["id"] == data[index]["ID"]){
+          document.getElementById("row" + String(i)).cells[1].innerHTML = "<img src=" + songs[f]["smallImg"] + " height=\"40px\"></img>"; 
+          break;
+        }
+      }
+      i++;
+    }
+  } // end make chart
 
-	function showViz(index){
+  function getArtists(dataObj){
+    var artists = "";
+    if (dataObj["artist1"] != "NA"){
+      artists += dataObj["artist1"];
+    }
+    if (dataObj["artist2"] != "NA"){
+      artists += ", " + dataObj["artist2"];
+    }
+    if (dataObj["artist3"] != "NA"){
+      artists += ", " + dataObj["artist3"];
+    }
+    if (dataObj["artist4"] != "NA"){
+      artists += ", " + dataObj["artist4"];
+    }
+    if (dataObj["artist5"] != "NA"){
+      artists += ", " + dataObj["artist5"];
+    }
+    if (dataObj["artist6"] != "NA"){
+      artists += ", " + dataObj["artist6"];
+    }
+    return artists;
+  }
 
-		d3.selectAll(".svg" + String(index+1) + "stuff").remove();
+  function getData(id, songObj){
 
-        margin = {top: 40, right: 0, bottom: 40, left: 50},
+    var newData = data.filter(function(d){ return d["ID"] === id});
+
+    var startDate = "1/1/2018";
+    if (parseDate("1/1/2018") < parseDate(songObj["releaseDate"])){
+        startDate = songObj["releaseDate"];
+      }
+
+    var startIndex = dates.length;
+    if (startDate != "1/1/2018"){
+        startIndex = dates.length-(datediff("1/1/2018",startDate))-1;
+    }
+
+    var ndInd = 0;
+    var completeData = [];
+    for (var date = startIndex; date >= 0; date--){
+        // no data for this date
+        if (newData[ndInd] == null || newData[ndInd]["Date"] != dates[date]){
+            completeData.push(null);
+        }
+        else{
+            completeData.push(newData[ndInd]);
+            ndInd++;
+        }
+    }
+    return completeData;
+  }
+
+  function showViz(index, category){
+
+        margin = {top: 30, right: 25, bottom: 40, left: 50},
         width = 850 - margin.left - margin.right,
         height = 300 - margin.top - margin.bottom;
 
 
-      var currSong = getValsDate(selection) + index;
+      var currSong = getValsDate(selection) + (index-1);
 
       var matchingID = data[currSong]["ID"];
 
@@ -122,16 +199,18 @@ function makeTable(error, data, songs){
 
       var areaData = getData(matchingID, foundData);
 
-     var svg = d3.select("#svg" + String(index+1))
+      d3.selectAll(".svg" + String(index) + "stuff").remove();
+
+     var svg = d3.select("#svg" + String(index))
+      .attr("transform", "translate(" + margin.right + ",0)");
     
     var graph = svg.append("g")
       .attr("transform", "translate(" + (margin.right+275) + "," + margin.top + ")");
 
-
       var xWidth = width - 300;
 
       svg.append("foreignObject")
-        .attr("class", "svg" + String(index+1) + "stuff")
+        .attr("class", "svg" + String(index) + "stuff")
         .attr("width",250)
         .attr("height",300)
         .attr("x", 0)
@@ -139,7 +218,7 @@ function makeTable(error, data, songs){
         .html("<b>Artist(s):</b> " + getArtists(foundData) + "<br><b>Release Date: </b>" + foundData["releaseDate"]);
 
       svg.append("svg:image")
-          .attr("class", "svg" + String(index+1) + "stuff")
+          .attr("class", "svg" + String(index) + "stuff")
           .attr("x", 0)
           .attr("y", 60)
           .attr("width", 200)
@@ -149,16 +228,29 @@ function makeTable(error, data, songs){
 
       var parseTime = d3.timeParse("%m/%d/%Y");
 
-      var x = d3.scaleTime().range([0, xWidth]),
-          y = d3.scaleLinear().range([height, 0]);
+      var x = d3.scaleTime().range([0, xWidth]);
+
+      if (category === "Streams"){
+        y = d3.scaleLinear().range([height, 0]);
+      }
+      else{
+        y = d3.scaleLinear().range([0, height]);
+      }
 
       var xAxis = d3.axisBottom()
           .scale(x)
           .tickFormat(d3.timeFormat("%m-%d"));
 
-      var yAxis = d3.axisLeft()
+      if (category === "Streams"){
+        var yAxis = d3.axisLeft()
           .scale(y)
           .tickFormat(d3.format(".2s"));
+      }
+      else{
+        var yAxis = d3.axisLeft()
+          .scale(y);
+      }
+      
 
       var startDate = "1/1/2018";
       if (parseDate("1/1/2018") < parseDate(foundData["releaseDate"])){
@@ -168,12 +260,12 @@ function makeTable(error, data, songs){
         x.domain([parseTime(startDate), d3.max(newData, function(d){ return parseTime(d["Date"]);})]);
 
         y.domain([
-          d3.min(newData, function(d) { return +d["Streams"]; }),
-          d3.max(newData, function(d) { return +d["Streams"]; })
+          d3.min(newData, function(d) { return +d[category]; }),
+          d3.max(newData, function(d) { return +d[category]; })
         ]);
 
         graph.append("g")
-          .attr("class", "svg" + String(index+1) + "stuff")
+          .attr("class", "svg" + String(index) + "stuff")
           .attr("transform", "translate(0," + (height) + ")")
           .call(xAxis)
           .selectAll("text")
@@ -182,36 +274,34 @@ function makeTable(error, data, songs){
           .style("text-anchor", "end")
           .attr("transform", "rotate(-65)");
 
+        var title = "Streams"
+        if (category === "Position"){
+          title = "Ranking";
+        }
+
         graph.append("g")
-            .attr("class", "svg" + String(index+1) + "stuff")
+            .attr("class", "svg" + String(index) + "stuff")
             .call(yAxis)
             .append("text")
+            .attr("id", "title" + String(index))
             .attr("transform", "rotate(-90)")
             .attr("y", -45)
             .attr("x", -(height/2)+40)
             .attr("fill", "#000")
-            .style("font-family", "Chivo")
+            .style("font-family", "Fira Sans Condensed")
             .attr("font-size", "12px")
             .attr("font-weight", "400")
-            .text("# of Streams");
-
-        /*graph.append("text")
-            .attr("x", 0)
-            .attr("y", height/2)
-            .attr("dy", "1em")
-            .style("text-anchor", "middle")
-            .text("Number of Streams")
-            .attr("transform", "rotate(-90)");*/
+            .text(title);
 
         var line = d3.line()
         .defined(function(d) { return d; })
         .x(function(d) { return x(parseDate(d["Date"])); })
-        .y(function(d) { return y(+d["Streams"]); });
+        .y(function(d) { return y(+d[category]); });
 
 
         var lineChunked = d3.lineChunked()
         .x(function (d) { return x(parseDate(d["Date"])); })
-        .y(function (d) { return y(+d["Streams"]); })
+        .y(function (d) { return y(+d[category]); })
         .curve(d3.curveLinear)
         .defined(function (d) { return d; })
         .lineStyles({
@@ -219,7 +309,7 @@ function makeTable(error, data, songs){
         });
 
       graph.datum(areaData)
-          .attr("class", "svg" + String(index+1) + "stuff")
+          .attr("class", "svg" + String(index) + "stuff")
           .call(lineChunked);
 
 
@@ -251,7 +341,7 @@ function makeTable(error, data, songs){
           graph.append("rect")
                   .attr("class", "tooltip")
                   .attr("x", x(parseTime(d["Date"]))-30)
-                  .attr("y", y(+d["Streams"])-35)
+                  .attr("y", y(+d[category])-35)
                   .attr("width", 60)
                   .attr("height", 30)
                   .style("fill", "white")
@@ -264,63 +354,62 @@ function makeTable(error, data, songs){
                   .attr("width", 100)
                   .attr("height", 30)
                   .attr("x", x(parseTime(d["Date"]))-50)
-                  .attr("y", y(+d["Streams"])-32)
+                  .attr("y", y(+d[category])-32)
                   .style("font", "10px 'Arial'")
-                  .html("<center><i>" + d["Date"] + "</i><br>" + format(d["Streams"]) + "</center>");
+                  .html("<center><i>" + d["Date"] + "</i><br>" + format(d[category]) + "</center>");
         })
         .on("mouseout", function(d){
           d3.selectAll(".tooltip").remove();
         });
-	}
+  }
 
-		var coll = document.getElementsByClassName("collapsible");
-		for (let i = 0; i < coll.length; i++) {
-		  coll[i].addEventListener("click", function() {
-		    this.classList.toggle("active");
-		    var content = document.getElementById("content" + String(i+1));
-		    if (content.style.maxHeight){
-		      content.style.maxHeight = null;
-		    } else {
-		      content.style.maxHeight = content.scrollHeight + "px";
-		      showViz(i);
-		    } 
-		  });
-		}
+  var coll = document.getElementsByClassName("collapsible");
+    for (let i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = document.getElementById("content" + String(i+1));
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+          showViz(i+1, "Streams");
+        } 
+      });
+    }
+
+    var selector = d3.select("#drop")
+      .append("select")
+      .attr("id","dropdown")
+      .on("change", function(d){
+          selData = document.getElementById("dropdown");
+          selection = selData.options[selData.selectedIndex].value;
+          
+          var startInd = getValsDate(selection);
+          var j = startInd;
+          var count = 1;
+          for (j; j < startInd + 200; j++){
+        document.getElementById("row" + String(count)).cells[2].innerHTML = "<b>" + data[j]["Track.Name"] + "</b> by " + data[j]["Artist"];
+        document.getElementById("row" + String(count)).cells[3].innerText = format(data[j]["Streams"]);
+
+        for (var f = 0; f < songs.length; f++){
+          if (songs[f]["id"] == data[j]["ID"]){
+            document.getElementById("row" + String(count)).cells[1].innerHTML = "<img src=" + songs[f]["smallImg"] + " height=\"40px\"></img>"; 
+            break;
+          }
+        }
+      count++;
 
 
-	var selector = d3.select("#drop")
-    	.append("select")
-    	.attr("id","dropdown")
-    	.on("change", function(d){
-        	selData = document.getElementById("dropdown");
-        	selection = selData.options[selData.selectedIndex].value;
-        	
-        	var startInd = getValsDate(selection);
-        	var j = startInd;
-        	var count = 1;
-        	for (j; j < startInd + 200; j++){
-				document.getElementById("row" + String(count)).cells[2].innerHTML = "<b>" + data[j]["Track.Name"] + "</b> by " + data[j]["Artist"];
-				document.getElementById("row" + String(count)).cells[3].innerText = format(data[j]["Streams"]);
-
-				for (var f = 0; f < songs.length; f++){
-					if (songs[f]["id"] == data[j]["ID"]){
-						document.getElementById("row" + String(count)).cells[1].innerHTML = "<img src=" + songs[f]["smallImg"] + " height=\"40px\"></img>"; 
-						break;
-					}
-				}
-			count++;
-
-
-			// close all opened ones when new date selected
-			var coll = document.getElementsByClassName("collapsible");
-			for (let i = 0; i < coll.length; i++) {
-			      var content = document.getElementById("content" + String(i+1));
-			      coll[i].classList.toggle("active", false);
-			      content.style.maxHeight = null;
-			  }
-		}
+      // close all opened ones when new date selected
+      var coll = document.getElementsByClassName("collapsible");
+      for (let i = 0; i < coll.length; i++) {
+            var content = document.getElementById("content" + String(i+1));
+            coll[i].classList.toggle("active", false);
+            content.style.maxHeight = null;
+        }
+    }
     });
-					
+          
 
     selector.selectAll("option")
       .data(dates)
@@ -332,3 +421,5 @@ function makeTable(error, data, songs){
         return d;
       })
 }
+
+  //d3.selectAll(".centeredDiv").remove();

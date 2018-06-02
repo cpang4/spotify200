@@ -1,5 +1,5 @@
 h2 {
-	font-family:'Fira Sans Condensed';
+  font-family:'Fira Sans Condensed';
 }
 
 .collapsible {
@@ -52,12 +52,13 @@ h2 {
 }
 
 .active, .collapsible:hover {
- 	background-color: #e9e8e6;   
+  background-color: #e9e8e6;   
 }
 
 .content {
-	padding:0px 200px;
-    width: 800px;
+  margin-left:auto;
+    margin-right:auto;
+    width: 850px;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
@@ -69,33 +70,6 @@ h2 {
     margin-right: auto;
     width: 1200px;
 }
-
-/* Not in use right now
-.xaxis line{
-  opacity: 0.25;
-}
-
-.xaxis path{
-  opacity: 0.25;
-}
-
-.xaxis text{
-  font-family:'Chivo';
-  fill: black;
-}
-
-.yaxis line{
-  opacity: 0.25;
-}
-
-.yaxis path{
-  opacity: 0.25;
-}
-
-.yaxis text{
-  font-family:'Chivo';
-  fill: black;
-}*/
 
 .axis path,
 .axis line {
@@ -122,4 +96,46 @@ h2 {
 
 .dot:hover{
   fill: red;
+}
+
+.nav ul {
+    float: right;
+    color: #130C0E;
+    font-size: 11px;
+    letter-spacing: 1px;
+    list-style: none;
+    padding: 0;
+    margin: 2px 20px 2px 10px;
+}
+.nav ul li {
+    display: inline-block;
+    padding: 2px 8px;
+    margin-right: 1px;
+    background: none;
+    border: solid #A9A9A9 0.5px;
+    cursor: pointer;
+    font-family: 'Fira Sans Condensed';
+}
+.nav ul li:hover {
+    background: #DCDCDC;
+}
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #e9e8e6;
+  color: black;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
 }
