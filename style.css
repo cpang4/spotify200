@@ -2,6 +2,11 @@ h2 {
   font-family:'Fira Sans Condensed';
 }
 
+p {
+  font-size:12px;
+  font-family:'Fira Sans Condensed';
+}
+
 .collapsible {
     color: black;
     cursor: pointer;
@@ -20,6 +25,10 @@ h2 {
     height: 25px;
     border: none;
     padding:10px;
+    text-align: left;
+    outline: none;
+    font-size: 14px;
+    font-family: 'Fira Sans Condensed';
 }
 
 
@@ -65,6 +74,10 @@ h2 {
     font-family:'Fira Sans Condensed';
 }
 
+.centeredDiv {
+  margin: auto;
+}
+
 .container {
     margin-left: auto;
     margin-right: auto;
@@ -106,6 +119,7 @@ h2 {
     list-style: none;
     padding: 0;
     margin: 2px 20px 2px 10px;
+    display: inline-block;
 }
 .nav ul li {
     display: inline-block;
@@ -138,4 +152,8 @@ h2 {
 
 #myBtn:hover {
   background-color: #555;
+}
+
+.navigation {
+  display: inline-block;
 }

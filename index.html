@@ -2,22 +2,34 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:400,400i,700" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <link rel="stylesheet" href="style.css">
-<style>
-.centeredDiv {
-	margin: auto;
-}
-</style>
 </head>
 <body>
 <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
 
 <div class = "container">
 <h2>Spotify Top 200</h2>
+<p>An interactive dashboard using <i>global</i> data from <a href="https://spotifycharts.com/regional" target=_blank>SpotifyCharts</a> and Spotify API.
+	<br>Click on a song below to see the number of <i>daily streams</i> or <i>ranking</i> in the Top 200.
+	<br>If a song was not in the Top 200 a certain day, then no data is shown for that day.
+	<br>Data is only available for the Top 200 songs on Spotify from 1/1/2018 - 5/28/2018.
+	<br>The graphs for a song only show data from the release date (or 1/1/2018, whichever is later) to the last date it was in the Top 200 (or 5/28/2018, whichever is earlier).
+</p>
+<div class = "navigation">
+
+<form action="javascript:searchSong();">
+	<input type = "text" id="songSearch" placeholder="Enter song" required />
+	<input type="submit" value="Search">
+</form>
+<form action="javascript:searchArtist();">
+	<input type = "text" id="artistSearch" placeholder="Enter artist" required />
+	<input type="submit" value="Search">
+</form>
 <div id="drop"></div>
+</div>
 
 <table class = "centeredDiv">
 	<tr>
