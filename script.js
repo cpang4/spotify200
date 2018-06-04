@@ -22,11 +22,19 @@ var songData = [];
 var chartData = [];
 var selection = dates[0];
 var searchData = [];
+var monthNames = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+var consecutive = {};
 
 d3.queue()
   .defer(d3.csv, 'global-ID-daily-2018-dupremoved.csv')
   .defer(d3.csv, 'song-data-nodups.csv')
   .await(saveData);
+
+// nice date display for tooltips, i.e. 1/1/2018 will be sent as Jan 1
+function getDateString(date){
+  var mdy = date.split('/');
+  return monthNames[mdy[0]-1] + " " + mdy[1];
+}
 
 function saveData(error, data, songs){
   for (var i = 0; i < data.length; i++){
@@ -96,9 +104,9 @@ function makeChart(date){
               if (graphSelection === "Rankings"){
                 category = "Position";
               }
+              // get position by extracting id
               var thisID = String(d3.select(this)["_groups"][0][0].id);
               var position = thisID.substring(2,thisID.length);
-              console.log(position);
               var filterSelect = d3.select("#nav" + position);
 
               filterSelect.selectAll("li").style("opacity", function(d){
@@ -211,8 +219,6 @@ function makeChart(date){
 
   function getData(id, songObj){
 
-    console.log(songObj);
-
     var newData = chartData.filter(function(d){ return d["ID"] === id});
 
     var startDate = "1/1/2018";
@@ -227,19 +233,28 @@ function makeChart(date){
 
     var ndInd = 0;
     var completeData = [];
+    var count = 0;
+    var highest = 0;
     for (var date = startIndex; date >= 0; date--){
         // no data for this date
         if (newData[ndInd] == null || newData[ndInd]["Date"] != dates[date]){
             completeData.push(null);
+            count = 0;
         }
         else{
             completeData.push(newData[ndInd]);
             ndInd++;
+            count++;
+            if (count > highest){
+              highest = count;
+            }
         }
     }
+    consecutive[id] = highest;
     return completeData;
   }
 
+  // show viz when displaying by day
   function showViz(index, category){
 
         margin = {top: 30, right: 25, bottom: 40, left: 50},
@@ -280,12 +295,16 @@ function makeChart(date){
         .attr("height",300)
         .attr("x", 0)
         .attr("y", 0)
-        .html("<b>Artist(s):</b> " + getArtists(foundData) + "<br><b>Release Date: </b>" + foundData["releaseDate"]);
+        .style("font", "11px 'Fira Sans Condensed'")
+        .html("<b>Artist(s):</b> " + getArtists(foundData) + "<br><b>Release Date: </b>" + foundData["releaseDate"]
+          +"<br><b>Days in the Top 200: </b>" + newData.length
+          +"<br><b>Highest consecutive days: </b>" + consecutive[matchingID]);
+          
 
       svg.append("svg:image")
           .attr("class", "svg" + String(index) + "stuff")
           .attr("x", 0)
-          .attr("y", 60)
+          .attr("y", 75)
           .attr("width", 200)
           .attr("height", 200)
           .attr("xlink:href", foundData["medImg"]);
@@ -397,10 +416,13 @@ function makeChart(date){
         .attr("cy", line.y())
         .attr("r", 2)
         .on("mouseover", function(d){
+          var xpos = d3.select(this).attr("cx") - 30;
+          var ypos = d3.select(this).attr("cy") - 35;
+
           graph.append("rect")
                   .attr("class", "tooltip")
-                  .attr("x", x(parseTime(d["Date"]))-30)
-                  .attr("y", y(+d[category])-35)
+                  .attr("x", xpos)
+                  .attr("y", ypos)
                   .attr("width", 60)
                   .attr("height", 30)
                   .style("fill", "white")
@@ -412,17 +434,19 @@ function makeChart(date){
                   .attr("class", "tooltip")
                   .attr("width", 100)
                   .attr("height", 30)
-                  .attr("x", x(parseTime(d["Date"]))-50)
-                  .attr("y", y(+d[category])-32)
-                  .style("font", "10px 'Arial'")
-                  .html("<center><i>" + d["Date"] + "</i><br>" + format(d[category]) + "</center>");
+                  .attr("x", xpos - 20)
+                  .attr("y", ypos + 3)
+                  .style("font", "10px 'Fira Sans Condensed'")
+                  .html("<center>" + getDateString(d["Date"]) + "<br>" + format(d[category]) + "</center>");
         })
         .on("mouseout", function(d){
           d3.selectAll(".tooltip").remove();
         });
   }
 
+  // to handle the searches by song
   function searchSong(){
+
       
       var input = document.getElementById("songSearch").value;
       input = input.trim();
@@ -436,6 +460,9 @@ function makeChart(date){
           }
         }
 
+      document.getElementById("artistForm").reset();
+      document.getElementById("songForm").reset();
+
       d3.selectAll("#dropdown").remove();
       d3.selectAll(".centeredDiv").remove();
       d3.selectAll(".content").remove();
@@ -443,7 +470,14 @@ function makeChart(date){
       makeArtistChart(input);
     }
 
+    // to handle the searches by artist
     function searchArtist(){
+
+      d3.select("#artistSearch")
+        .attr("placeholder", "Enter artist");
+      d3.select("#songSearch")
+        .attr("placeholder", "Enter song");
+
       var input = document.getElementById("artistSearch").value;
       var cleanInput = input.trim();
       cleanInput = cleanInput.toLowerCase();
@@ -469,6 +503,9 @@ function makeChart(date){
               matchingSongs.push(songData[f]);
             }
       }
+
+      document.getElementById("artistForm").reset();
+      document.getElementById("songForm").reset();
 
       
       d3.selectAll("#dropdown").remove();
@@ -502,6 +539,8 @@ function makeChart(date){
      makeChart(selection);
   }
 
+
+  // make table without ranking
   function makeArtistChart(input){
 
       d3.select("body")
@@ -587,6 +626,7 @@ function makeChart(date){
       index++;
     }
 
+    // add viz when opened
       var coll = document.getElementsByClassName("collapsible");
     for (let i = 0; i < coll.length; i++) {
       coll[i].addEventListener("click", function() {
@@ -603,6 +643,7 @@ function makeChart(date){
     }
   }
 
+  // to be used when a search is done
   function showSearchViz(index, category){
 
       margin = {top: 30, right: 25, bottom: 40, left: 50},
@@ -631,12 +672,15 @@ function makeChart(date){
         .attr("height",300)
         .attr("x", 0)
         .attr("y", 0)
-        .html("<b>Artist(s):</b> " + getArtists(searchData[index-1]) + "<br><b>Release Date: </b>" + searchData[index-1]["releaseDate"]);
+        .style("font", "11px 'Fira Sans Condensed'")
+        .html("<b>Artist(s):</b> " + getArtists(searchData[index-1]) + "<br><b>Release Date: </b>" + searchData[index-1]["releaseDate"]
+          +"<br><b>Days in the Top 200: </b>" + newData.length 
+          +"<br><b>Highest consecutive days: </b>" + consecutive[matchingID]);
 
       svg.append("svg:image")
           .attr("class", "svg" + String(index) + "stuff")
           .attr("x", 0)
-          .attr("y", 60)
+          .attr("y", 75)
           .attr("width", 200)
           .attr("height", 200)
           .attr("xlink:href", searchData[index-1]["medImg"]);
@@ -748,10 +792,12 @@ function makeChart(date){
         .attr("cy", line.y())
         .attr("r", 2)
         .on("mouseover", function(d){
+          var xpos = d3.select(this).attr("cx") - 30;
+          var ypos = d3.select(this).attr("cy") - 35;
           graph.append("rect")
                   .attr("class", "tooltip")
-                  .attr("x", x(parseTime(d["Date"]))-30)
-                  .attr("y", y(+d[category])-35)
+                  .attr("x", xpos)
+                  .attr("y", ypos)
                   .attr("width", 60)
                   .attr("height", 30)
                   .style("fill", "white")
@@ -763,10 +809,10 @@ function makeChart(date){
                   .attr("class", "tooltip")
                   .attr("width", 100)
                   .attr("height", 30)
-                  .attr("x", x(parseTime(d["Date"]))-50)
-                  .attr("y", y(+d[category])-32)
-                  .style("font", "10px 'Arial'")
-                  .html("<center><i>" + d["Date"] + "</i><br>" + format(d[category]) + "</center>");
+                  .attr("x", xpos - 20)
+                  .attr("y", ypos + 3)
+                  .style("font", "10px 'Fira Sans Condensed'")
+                  .html("<center>" + getDateString(d["Date"]) + "<br>" + format(d[category]) + "</center>");
         })
         .on("mouseout", function(d){
           d3.selectAll(".tooltip").remove();

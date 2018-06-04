@@ -104,7 +104,6 @@ p {
 .dot {
   fill: steelblue;
   stroke: steelblue;
-  stroke-width: 1px;
 }
 
 .dot:hover{

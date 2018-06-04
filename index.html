@@ -12,22 +12,27 @@
 
 <div class = "container">
 <h2>Spotify Top 200</h2>
-<p>An interactive dashboard using <i>global</i> data from <a href="https://spotifycharts.com/regional" target=_blank>SpotifyCharts</a> and Spotify API.
-	<br>Click on a song below to see the number of <i>daily streams</i> or <i>ranking</i> in the Top 200.
+<p>An interactive dashboard using <b>global</b> data from <a href="https://spotifycharts.com/regional" target=_blank>SpotifyCharts</a> and Spotify API.
+	<br>Click on a song below to see the number of <b>daily streams</b> or <b>ranking</b> in the Top 200.
 	<br>If a song was not in the Top 200 a certain day, then no data is shown for that day.
-	<br>Data is only available for the Top 200 songs on Spotify from 1/1/2018 - 5/28/2018.
+	<br>Data is only available for the Top 200 songs on Spotify from 1/1/2018 - 5/28/2018, hence <b>days in Top 200</b> and <b>highest consecutive days</b> are only considering this time period.
 	<br>The graphs for a song only show data from the release date (or 1/1/2018, whichever is later) to the last date it was in the Top 200 (or 5/28/2018, whichever is earlier).
+	<br>Use the <i>dropdown menu</i> to see the Top 200 chart for a different day in 2018.
+	<br>Use the searches to find all songs containing a certain keyword/phrase, or search for an artist to see the songs that have reached the Top 200 in 2018.
+	<br>(For song names/artists containing an accent, the search works best by searching the part up to the accent. Example: Beyonc&#233; &rarr; Beyonc)
 </p>
 <div class = "navigation">
 
-<form action="javascript:searchSong();">
+<form action="javascript:searchSong();" id = "songForm">
 	<input type = "text" id="songSearch" placeholder="Enter song" required />
 	<input type="submit" value="Search">
 </form>
-<form action="javascript:searchArtist();">
+<br>
+<form action="javascript:searchArtist();" id = "artistForm">
 	<input type = "text" id="artistSearch" placeholder="Enter artist" required />
 	<input type="submit" value="Search">
 </form>
+<br>
 <div id="drop"></div>
 </div>
 
